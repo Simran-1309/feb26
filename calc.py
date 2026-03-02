@@ -1,17 +1,37 @@
-first_number = float(input("Enter a number: "))
-operator = input("Enter a operator(+, -,/, *): ")
-second_number = float(input("Enter another number: "))
-if operator == "+":
-    result = first_number + second_number
-elif operator == "-":
-    result = first_number - second_number
-elif operator == "*":
-    result = first_number * second_number
-elif operator == "/":
-    if second_number != 0:
-        result = first_number / second_number
+class Calculator:
+    def __init__(self, num1, operation, num2):
+        self.num1 = num1
+        self.operation = operation
+        self.num2 = num2
+
+    def add(self):
+        return self.num1 + self.num2
+    def subtract(self):
+        return self.num1 - self.num2
+    def multiply(self):
+        return self.num1 * self.num2
+    def divide(self):
+        if self.num2 == 0:
+            return "Error: Division by zero is not allowed."
+        return self.num1 / self.num2
+
+def main():
+    num1 = float(input("Enter first number: "))
+    operation = input("Enter operation (+, -, /, *): ")
+    num2 = float(input("Enter second number: "))
+    calculator = Calculator(num1, operation, num2)
+
+    if calculator.operation == "+":
+        result = calculator.add()
+    elif calculator.operation == "-":
+        result = calculator.subtract()
+    elif calculator.operation == "*":
+        result = calculator.multiply()
+    elif calculator.operation == "/":
+        result = calculator.divide()
     else:
-        result = "Error: Division by zero is not allowed."
-else:
-    result = "Error: Invalid operator."
-print("Result:",result)
+        result = "Invalid operation"
+    print(f"Result = {result}")
+
+if __name__ == "__main__":
+    main()
