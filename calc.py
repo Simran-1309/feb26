@@ -16,22 +16,28 @@ class Calculator:
         return self.num1 / self.num2
 
 def main():
-    num1 = float(input("Enter first number: "))
-    operation = input("Enter operation (+, -, /, *): ")
-    num2 = float(input("Enter second number: "))
-    calculator = Calculator(num1, operation, num2)
+    while True:
+        print("/nSimple Calculator")
+        print("Enter 'q' to quit")
+        num1 = float(input("Enter first number: "))
+        operation = input("Enter operation (+, -, /, *): ")
+        num2 = float(input("Enter second number: "))
+        calculator = Calculator(num1, operation, num2)
 
-    if calculator.operation == "+":
-        result = calculator.add()
-    elif calculator.operation == "-":
-        result = calculator.subtract()
-    elif calculator.operation == "*":
-        result = calculator.multiply()
-    elif calculator.operation == "/":
-        result = calculator.divide()
-    else:
-        result = "Invalid operation"
-    print(f"Result = {result}")
+        if calculator.operation == "+":
+            result = calculator.add()
+        elif calculator.operation == "-":
+            result = calculator.subtract()
+        elif calculator.operation == "*":
+            result = calculator.multiply()
+        elif calculator.operation == "/":
+            result = calculator.divide()
+        elif calculator.operation.lower()=='q':
+            print("Exiting")
+            exit()
+        else:
+            result = "Invalid operation"
+        print(f"Result = {result}")
 
 if __name__ == "__main__":
     main()
