@@ -18,7 +18,10 @@ class Calculator:
 def main():
     while True:
         print("/nSimple Calculator")
-        print("Enter 'q' to quit")
+        choice = input("Q=> quit or press enter: ")
+        if choice.lower() == "q":
+            print("Goodbye")
+            exit()
         num1 = float(input("Enter first number: "))
         operation = input("Enter operation (+, -, /, *): ")
         num2 = float(input("Enter second number: "))
@@ -32,9 +35,7 @@ def main():
             result = calculator.multiply()
         elif calculator.operation == "/":
             result = calculator.divide()
-        elif calculator.operation.lower()=='q':
-            print("Exiting")
-            exit()
+        
         else:
             result = "Invalid operation"
         print(f"Result = {result}")
